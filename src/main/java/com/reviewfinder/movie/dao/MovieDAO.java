@@ -52,5 +52,18 @@ public class MovieDAO {
 		}
 	}
 	
-	
+	// 박스오피스 테이블 추가
+	public void insertBoxOffice(HashMap<String, MovieDTO> moviemap) {
+		List<MovieDTO> movie = new ArrayList<MovieDTO>();
+		for(int i=1;i<=moviemap.size();i++) {
+			movie.add(moviemap.get(""+i+""));
+		}
+		for(int i=0;i<movie.size();i++) {
+			if(session.insert("Dbtest.insertBoxOffice",movie.get(i))==1) {
+				System.out.println("BOXOFFICE_RANK db저장 성공");
+			}else {
+				System.out.println("BOXOFFICE_RANK db저장 실패");
+			}
+		}
+	}
 }
