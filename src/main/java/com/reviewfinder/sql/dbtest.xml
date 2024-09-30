@@ -15,4 +15,7 @@
 	<insert id="insertBoxOffice" parameterType="moviedto">
 		
 	</insert>
+	<select id="selectMovieFromDB" parameterType="hashmap" resultType="moviedto">
+		SELECT * FROM MOVIE_DB WHERE MOVIE_TITLE = #{movie_title} AND MOVIE_DATE = #{movie_date}
+	</select>
 </mapper>
