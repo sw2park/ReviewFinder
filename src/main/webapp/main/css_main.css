@@ -14,12 +14,15 @@ body {
     background-color: white;
 }
 
+.content {
+    width:80%;
+}
+
 .BOcontatiner {
     display: flex;
     justify-content: space-between;
     gap: 20px;
     max-width: 100%;
-    margin: 0 auto 0 200px;
 }
 
 .movie {
@@ -54,7 +57,6 @@ body {
 
 .BOtitle {
     position: relative;
-    margin-left: 200px;
 }
 
 .ranking {
@@ -75,4 +77,49 @@ body {
     font-weight: bold;
     justify-content: center;
     opacity: 0.9;
+}
+
+/* 슬라이더 컨테이너 */
+.slider-container {
+    width: 100%; /* 화면에 보일 영역 크기 */
+    overflow: hidden; /* 슬라이드 영역 외는 숨김 */
+    position: relative;
+}
+
+/* 슬라이더 안의 내용물 */
+.slider-wrapper {
+    display: flex; /* 슬라이드들을 가로로 나열 */
+    transition: transform 0.5s ease; /* 슬라이드 애니메이션 */
+}
+
+/* 슬라이드 아이템 */
+.slide-item {
+    margin: 0 10px;
+    text-align: center;
+}
+
+/* 이전 이후 버튼*/
+.prevBtn,.nextBtn {
+    border-radius: 20px;
+    font-size:30px;
+
+    position: absolute;
+    top:40%;
+    transform: translateY(-50%);
+    
+    background-color:rgba(0, 0, 0, 0); /* 투명 */
+    color:white;
+    border:none;
+    padding:10px;
+    cursor:pointer;
+}
+
+/* 이전 버튼 */
+.prevBtn {
+    left: 0;
+}
+
+/* 이후 버튼 */
+.nextBtn {
+    right: 0;
 }

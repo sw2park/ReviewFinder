@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ReviewFinder </title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="../main/css_main.css" />    
 </head>
@@ -15,302 +15,41 @@
         <header class="header"></header>
     </div>
     <!-- 테스트 용 -->
-    <div>
-        <h2 class="BOtitle">박스오피스 순위</h2>
+    <div class="content">
+        <h2 class="BOtitle">이번달(변경예정) 박스오피스</h2>
         <!-- BOcontainer -->
         <div class="BOcontatiner">
-            <!-- 영화 1 -->
-             <div class="movie">
-                <!-- 포스터 주소 들어갈거임 -->
-                 <div class="contents-wrap">
-                     <a href="sendMovieName">
-                        <img src="../main/testposter.png" alt="베테랑2">
-                        <div class="ranking">1</div>
-                     </a>
-                 </div>
-                <div class="movie-info">
-                    <h2>영화 제목</h2>
-                    <p>개봉일</p>
-                </div>
-             </div>
-             <!-- 영화 2 -->
-             <div class="movie">
-                <!-- 포스터 주소 들어갈거임 -->
-                 <div class="contents-wrap">
-                     <a href="sendMovieName">
-                        <img src="../main/testposter.png" alt="베테랑2">
-                        <div class="ranking">1</div>
-                     </a>
-                 </div>
-                <div class="movie-info">
-                    <h2>영화 제목</h2>
-                    <p>개봉일</p>
-                </div>
-             </div>
-             <!-- 영화 3 -->
-             <div class="movie">
-                <!-- 포스터 주소 들어갈거임 -->
-                 <div class="contents-wrap">
-                     <a href="sendMovieName">
-                        <img src="../main/testposter.png" alt="베테랑2">
-                        <div class="ranking">1</div>
-                     </a>
-                 </div>
-                <div class="movie-info">
-                    <h2>영화 제목</h2>
-                    <p>개봉일</p>
-                </div>
-             </div>
-             <!-- 영화 4 -->
-             <div class="movie">
-                <!-- 포스터 주소 들어갈거임 -->
-                 <div class="contents-wrap">
-                     <a href="sendMovieName">
-                        <img src="../main/testposter.png" alt="베테랑2">
-                        <div class="ranking">1</div>
-                     </a>
-                 </div>
-                <div class="movie-info">
-                    <h2>영화 제목</h2>
-                    <p>개봉일</p>
-                </div>
-             </div>
-             <!-- 영화 5 -->
-             <div class="movie">
-                <!-- 포스터 주소 들어갈거임 -->
-                 <div class="contents-wrap">
-                     <a href="sendMovieName">
-                        <img src="../main/testposter.png" alt="베테랑2">
-                        <div class="ranking">1</div>
-                     </a>
-                 </div>
-                <div class="movie-info">
-                    <h2>영화 제목</h2>
-                    <p>개봉일</p>
-                </div>
-             </div>
-             <!-- 영화 6 -->
-             <div class="movie">
-                <!-- 포스터 주소 들어갈거임 -->
-                 <div class="contents-wrap">
-                     <a href="sendMovieName">
-                        <img src="../main/testposter.png" alt="베테랑2">
-                        <div class="ranking">1</div>
-                     </a>
-                 </div>
-                <div class="movie-info">
-                    <h2>영화 제목</h2>
-                    <p>개봉일</p>
-                </div>
-             </div>
-             <!-- 영화 7 -->
-             <div class="movie">
-                <!-- 포스터 주소 들어갈거임 -->
-                 <div class="contents-wrap">
-                     <a href="sendMovieName">
-                        <img src="../main/testposter.png" alt="베테랑2">
-                        <div class="ranking">1</div>
-                     </a>
-                 </div>
-                <div class="movie-info">
-                    <h2>영화 제목</h2>
-                    <p>개봉일</p>
-                </div>
-             </div>
-             <!-- 영화 8 -->
-             <div class="movie">
-                <!-- 포스터 주소 들어갈거임 -->
-                 <div class="contents-wrap">
-                     <a href="sendMovieName">
-                        <img src="../main/testposter.png" alt="베테랑2">
-                        <div class="ranking">1</div>
-                     </a>
-                 </div>
-                <div class="movie-info">
-                    <h2>영화 제목</h2>
-                    <p>개봉일</p>
-                </div>
-             </div>
-             <!-- 영화 9 -->
-             <div class="movie">
-                <!-- 포스터 주소 들어갈거임 -->
-                 <div class="contents-wrap">
-                     <a href="sendMovieName">
-                        <img src="../main/testposter.png" alt="베테랑2">
-                        <div class="ranking">1</div>
-                     </a>
-                 </div>
-                <div class="movie-info">
-                    <h2>영화 제목</h2>
-                    <p>개봉일</p>
-                </div>
-             </div>
-             <!-- 영화 10 -->
-             <div class="movie">
-                <!-- 포스터 주소 들어갈거임 -->
-                 <div class="contents-wrap">
-                     <a href="sendMovieName">
-                        <img src="../main/testposter.png" alt="베테랑2">
-                        <div class="ranking">1</div>
-                     </a>
-                 </div>
-                <div class="movie-info">
-                    <h2>영화 제목</h2>
-                    <p>개봉일</p>
-                </div>
-             </div>
-        </div>
-        <!-- 테스트 용 -->
-    <div>
-        <h2 class="BOtitle">박스오피스 순위</h2>
-        <!-- BOcontainer -->
-        <div class="BOcontatiner">
-            <!-- 영화 1 -->
-             <div class="movie">
-                <!-- 포스터 주소 들어갈거임 -->
-                 <div class="contents-wrap">
-                     <a href="sendMovieName">
-                        <img src="../main/testposter.png" alt="베테랑2">
-                        <div class="ranking">1</div>
-                     </a>
-                 </div>
-                <div class="movie-info">
-                    <h2>영화 제목</h2>
-                    <p>개봉일</p>
-                </div>
-             </div>
-             <!-- 영화 2 -->
-             <div class="movie">
-                <!-- 포스터 주소 들어갈거임 -->
-                 <div class="contents-wrap">
-                     <a href="sendMovieName">
-                        <img src="../main/testposter.png" alt="베테랑2">
-                        <div class="ranking">1</div>
-                     </a>
-                 </div>
-                <div class="movie-info">
-                    <h2>영화 제목</h2>
-                    <p>개봉일</p>
-                </div>
-             </div>
-             <!-- 영화 3 -->
-             <div class="movie">
-                <!-- 포스터 주소 들어갈거임 -->
-                 <div class="contents-wrap">
-                     <a href="sendMovieName">
-                        <img src="../main/testposter.png" alt="베테랑2">
-                        <div class="ranking">1</div>
-                     </a>
-                 </div>
-                <div class="movie-info">
-                    <h2>영화 제목</h2>
-                    <p>개봉일</p>
-                </div>
-             </div>
-             <!-- 영화 4 -->
-             <div class="movie">
-                <!-- 포스터 주소 들어갈거임 -->
-                 <div class="contents-wrap">
-                     <a href="sendMovieName">
-                        <img src="../main/testposter.png" alt="베테랑2">
-                        <div class="ranking">1</div>
-                     </a>
-                 </div>
-                <div class="movie-info">
-                    <h2>영화 제목</h2>
-                    <p>개봉일</p>
-                </div>
-             </div>
-             <!-- 영화 5 -->
-             <div class="movie">
-                <!-- 포스터 주소 들어갈거임 -->
-                 <div class="contents-wrap">
-                     <a href="sendMovieName">
-                        <img src="../main/testposter.png" alt="베테랑2">
-                        <div class="ranking">1</div>
-                     </a>
-                 </div>
-                <div class="movie-info">
-                    <h2>영화 제목</h2>
-                    <p>개봉일</p>
-                </div>
-             </div>
-             <!-- 영화 6 -->
-             <div class="movie">
-                <!-- 포스터 주소 들어갈거임 -->
-                 <div class="contents-wrap">
-                     <a href="sendMovieName">
-                        <img src="../main/testposter.png" alt="베테랑2">
-                        <div class="ranking">1</div>
-                     </a>
-                 </div>
-                <div class="movie-info">
-                    <h2>영화 제목</h2>
-                    <p>개봉일</p>
-                </div>
-             </div>
-             <!-- 영화 7 -->
-             <div class="movie">
-                <!-- 포스터 주소 들어갈거임 -->
-                 <div class="contents-wrap">
-                     <a href="sendMovieName">
-                        <img src="../main/testposter.png" alt="베테랑2">
-                        <div class="ranking">1</div>
-                     </a>
-                 </div>
-                <div class="movie-info">
-                    <h2>영화 제목</h2>
-                    <p>개봉일</p>
-                </div>
-             </div>
-             <!-- 영화 8 -->
-             <div class="movie">
-                <!-- 포스터 주소 들어갈거임 -->
-                 <div class="contents-wrap">
-                     <a href="sendMovieName">
-                        <img src="../main/testposter.png" alt="베테랑2">
-                        <div class="ranking">1</div>
-                     </a>
-                 </div>
-                <div class="movie-info">
-                    <h2>영화 제목</h2>
-                    <p>개봉일</p>
-                </div>
-             </div>
-             <!-- 영화 9 -->
-             <div class="movie">
-                <!-- 포스터 주소 들어갈거임 -->
-                 <div class="contents-wrap">
-                     <a href="sendMovieName">
-                        <img src="../main/testposter.png" alt="베테랑2">
-                        <div class="ranking">1</div>
-                     </a>
-                 </div>
-                <div class="movie-info">
-                    <h2>영화 제목</h2>
-                    <p>개봉일</p>
-                </div>
-             </div>
-             <!-- 영화 10 -->
-             <div class="movie">
-                <!-- 포스터 주소 들어갈거임 -->
-                 <div class="contents-wrap">
-                     <a href="sendMovieName">
-                        <img src="../main/testposter.png" alt="베테랑2">
-                        <div class="ranking">1</div>
-                     </a>
-                 </div>
-                <div class="movie-info">
-                    <h2>영화 제목</h2>
-                    <p>개봉일</p>
-                </div>
-             </div>
+        	<div class="slider-container">
+        		<div class="slider-wrapper">
+		        <%for(int i=0; i<10; i++) { %>
+		        	<div class="slide-item">
+			        	<!-- 영화 1 -->
+			             <div class="movie">
+			                <!-- 포스터 주소 들어갈거임 -->
+			                 <div class="contents-wrap">
+			                     <a href="sendMovieName">
+			                        <img src="../main/testposter.png" alt="베테랑2">
+			                        <div class="ranking"> <%= i+1 %></div>
+			                     </a>
+			                 </div>
+			                <div class="movie-info">
+			                    <h2>영화 제목</h2>
+			                    <p>개봉일</p>
+			                </div>
+			             </div>
+		            </div>
+		            <%} %> 
+		          </div>
+		          <button class="prevBtn" id="prevBtn">&lt;</button>
+		          <button class="nextBtn" id="nextBtn">&gt;</button>
+	          </div>
         </div>
         
     </div>
     <div>
         <footer class="footer"></footer>
     </div>
+    <script type="text/javascript" src="../main/js_main.js"></script>
     <script>
         $(function(){
             $(".header").load("../header/header.html");
