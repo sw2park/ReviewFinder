@@ -13,7 +13,7 @@
 		)
 	</insert>
 	<insert id="insertBoxOffice" parameterType="moviedto">
-		INSERT INTO BOXOFFICE_RANK br VALUES(movie_seq.nextval, 1,#{movie_date})
+		INSERT INTO BOXOFFICE_RANK VALUES(movie_seq.nextval, 1,#{movie_date})
 	</insert>
 	<select id="selectMovieFromDB" parameterType="hashmap" resultType="moviedto">
 		SELECT * FROM MOVIE_DB WHERE MOVIE_TITLE = #{movie_title} AND MOVIE_DATE = #{movie_date}
