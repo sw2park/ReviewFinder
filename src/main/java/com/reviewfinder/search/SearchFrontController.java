@@ -1,4 +1,4 @@
-package com.reviewfinder.movie;
+package com.reviewfinder.search;
 
 import java.io.IOException;
 
@@ -11,8 +11,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("*.mv")
-public class MovieFrontController extends HttpServlet{
+@WebServlet("*.sr")
+public class SearchFrontController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doProcess(req, resp);
@@ -22,22 +22,10 @@ public class MovieFrontController extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doProcess(req, resp);
 	}
-	
+
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		String requestURI = request.getRequestURI();
 		ActionForward forward = null;
-		
-		if(requestURI.equals("/movie/MovieBasicSetteing.mv")) {
-			forward = new MovieBasicInsertAction().execute(request, response);
-		}else if(requestURI.equals("/movie/InsertMovieDB.mv")) {
-			forward = new InsertMovieAction().execute(request, response);
-		}else if(requestURI.equals("/movie/InsertBoxoffice.mv")){
-			
-		}else if(requestURI.equals("/movie/MovieDetails.mv")) {	//임시
-			forward = new MovieDetails().execute(request, response);
-		}else if(requestURI.equals("/movie/InsertMovieToGenre.mv")) {
-			forward = new InsertMovieToGenre().execute(request, response);
-		}
 		
 		
 		if(forward!=null) {
@@ -51,12 +39,3 @@ public class MovieFrontController extends HttpServlet{
 	}
 	
 }
-
-
-
-
-
-
-
-
-

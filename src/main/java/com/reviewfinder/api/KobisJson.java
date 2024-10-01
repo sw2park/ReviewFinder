@@ -1,4 +1,4 @@
-package com.reviewfinder.json;
+package com.reviewfinder.api;
 
 import java.io.IOException;
 import java.util.ArrayList;
