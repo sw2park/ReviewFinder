@@ -30,7 +30,7 @@ public class KobisJson extends APIController{
 		List<MovieDTO> movieList = new ArrayList<MovieDTO>();
 		MovieDTO moviedto = null;
 		String url = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json";
-		url_key.put("url", url);
+		url_key.put("url", url);	
 		
 		String var = "movieNm";
 		String data = movieNm;
@@ -73,38 +73,14 @@ public class KobisJson extends APIController{
 	public List<MovieDTO> getRecommendList() throws IOException, ParseException{
 		List<MovieDTO> movieList = new ArrayList<MovieDTO>();
 		
-		for(int i=0;i<5;i++) {
-			HashMap<String, MovieDTO> movieMap = null;
-			String date = null;
-			switch(i) {
-			case 0:
-				date = "20230101"; 
-				url_key.put("key", "6974fb00d854190ff2f7728d4a150966");
-				break;
-			case 1:
-				date = "20230501";
-				url_key.put("key", "b841d040f088509344cac5574340c4cd");
-				break;
-			case 2:
-				date = "20230701";
-				url_key.put("key", "6974fb00d854190ff2f7728d4a150966");
-				break;
-			case 3:
-				date = "20240201";
-				url_key.put("key", "b841d040f088509344cac5574340c4cd");
-				break;
-			case 4:
-				date = "20240501";
-				url_key.put("key", "6974fb00d854190ff2f7728d4a150966");
-				break;
-			}
-			
-			movieMap = getBoxOffice(date);
-			for(int j=1;j<=10;j++) {
-				movieList.add(movieMap.get(""+j+""));
-			}
+		for(int i=1;i<=10;i++) {
+			movieList.add(getBoxOffice("20230101").get(""+i+""));
+			movieList.add(getBoxOffice("20230501").get(""+i+""));
+			movieList.add(getBoxOffice("20230701").get(""+i+""));
+			movieList.add(getBoxOffice("20240201").get(""+i+""));
+			movieList.add(getBoxOffice("20240501").get(""+i+""));
 		}
-
+		
 		return movieList;
 	}
 	
@@ -130,13 +106,7 @@ public class KobisJson extends APIController{
 		JSONObject objData = (JSONObject)new JSONParser().parse(boxOfficeData);
 		JSONObject boxOfficeResult = (JSONObject)objData.get("boxOfficeResult");
 		
-		JSONArray dailyBoxOfficeList = null;
-		
-		try{
-			dailyBoxOfficeList = (JSONArray)boxOfficeResult.get("dailyBoxOfficeList");
-		}catch (NullPointerException e) {
-			getBoxOffice(date);
-		}
+		JSONArray dailyBoxOfficeList = (JSONArray)boxOfficeResult.get("dailyBoxOfficeList");
 		
 		for(Object obj : dailyBoxOfficeList) {
 			JSONObject movieData = (JSONObject)obj;
@@ -156,12 +126,5 @@ public class KobisJson extends APIController{
 	public HashMap<String, MovieDTO> getBoxOffice() throws IOException, ParseException{
 		return getBoxOffice(null);
 	}
-  
-//	public static void main(String[] args) throws IOException, ParseException {
-//		KobisJson k = new KobisJson();
-//		List<MovieDTO> movie = k.getRecommendList();
-//		for(MovieDTO temp : movie) {
-//			System.out.println(temp.getMovie_title());
-//		}
-//	}
+	
 }

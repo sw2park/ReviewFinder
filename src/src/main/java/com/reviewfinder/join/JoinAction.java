@@ -1,42 +1,47 @@
 package com.reviewfinder.join;
 
-import com.reviewfinder.action.Action;
+import java.io.IOException;
+
 import com.reviewfinder.action.ActionForward;
 import com.reviewfinder.member.dao.MemberDAO;
-
 import com.reviewfinder.member.dao.MemberDTO;
 
+import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-import jakarta.websocket.Session;
 
-public class LoginAction implements Action{
+public class JoinAction implements com.reviewfinder.action.Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) {
 
 		ActionForward forward = new ActionForward();
-
-		HttpSession Session = req.getSession();
 		
 		MemberDAO mdao = new MemberDAO();
+		MemberDTO mdto = new MemberDTO();
 		
 		String userid = req.getParameter("userid");
 		String userpw = req.getParameter("userpw");
-	
-		MemberDTO mdto = mdao.login(userid, userpw);
+		String username = req.getParameter("username");
+		String usergrade = req.getParameter("usergrade");
+		
+		mdto.setUserid(userid);
+		mdto.setUserpw(userpw);
+		mdto.setUsername(username);
+		mdto.setUsergrade(usergrade);
 		
 		forward.setRedirect(true);
-		mdto.setUserpw(null);
 		
-		if (mdto != null){ //로그인 성공(성공 시 메인 페이지로 연결해야함)
-			Session.setAttribute("session_id", mdto);
-			forward.setPath("/qnaboard/BoardList.bo");
-		} else {						//로그인 실패
-			forward.setPath("/join/login.jsp?flag=false");
+		if(mdao.join(mdto)) { 
+			forward.setPath("http://localhost:8081/join/login.jsp");
+			
+		} else {
+			
+			forward.setPath("http://localhost:8081/join/join_view.jsp");
 		}
-	
+		
+
 		return forward;
 	}
+
 }
