@@ -7,12 +7,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-	<style>
-	
-		html {
+<style>
+	html {
 	  	  font-family: Pretendard, "Apple SD Gothic Neo", "Nanum Gothic", "Malgun Gothic", sans-serif;
 	    }
-	    
+	     
 	   table{
 	      margin:0 auto;
 	      width:900px;
@@ -37,18 +36,21 @@
      
 	</style>
 </head>
-<body onload="checkUserRole()">
+	<body onload="checkUserRole()">
 
 	<c:if test="${not param.flag and not empty param.flag }">
 		<script>
-			alert("게시글 등록 실패. 다시 시도하세요.");
+			alert("게시글 수정 실패. 다시 시도하세요.");
 		</script>
 	</c:if>
-   <div>
+	
+      <c:set var="board" value="${requestScope.board }"/>
       
-      <form method="post" name="boardForm" action="/qnaboard/BoardWriteOk.bo">
-       
+   
+   <div>
+      <form method="post" name="ModifyForm" action="/qnaboard/UpdateBoardAction.bo">
          <table border="0" style="border-collapse:collapse;">
+     	  	<input type="text" name="boardnum" value="${param.boardnum }" />
         	  <tr height="30px">
                <th align="center" width="150px" style="color: #f7175a;">
                   카테고리
@@ -56,9 +58,9 @@
                <td>
                   <select name="boardcate">
 		            <option disabled selected>유형을 선택하세요</option>
-		            <option id="noticeOption">notice</option>
-		            <option>recommend</option>
-		            <option>ask</option>            
+		            <option id="noticeOption">공지</option>
+		            <option>추천</option>
+		            <option>문의</option>            
 	        </select>
                </td>
             </tr>
@@ -67,7 +69,7 @@
                   제 목
                </th>
                <td>
-                  <input name="boardtitle" size="50" maxlength="100" value="" placeholder="제목을 입력하세요">
+                  <input name="boardtitle" size="50" maxlength="100" value="">
                </td>
             </tr>
             <tr height="30px">
@@ -83,14 +85,14 @@
                   내 용
                </th>
                <td>
-                  <textarea name="boardcontents" style="width:700px;height:250px;" placeholder="내용을 입력하세요"></textarea>               
+                  <textarea name="boardcontents" style="width:700px;height:250px;" value=""></textarea>               
                </td>
             </tr>
          </table>
          <table style="border:0px;">
             <tr align="right" valign="middle">
                <td>
-                	<input type="button" value="작성 완료" class="WriteOK" onclick="document.boardForm.submit();">
+                	<input type="button" value="작성 완료" class="WriteOK" onclick="document.ModifyForm.submit();">
                     <input type="button" value="취소" class="BacktoList" onclick="location.href='/qnaboard/BoardList.bo';"></td>
             </tr>
          </table>
@@ -101,7 +103,7 @@
         function checkUserRole() {
             var userRole = '${sessionScope.session_id.usergrade}';
             if (userRole !== 'ADMIN') {
-                // admin이 아닌 경우 "notice" 옵션 제거
+                // admin이 아닌 경우 "공지" 옵션 제거
                 document.getElementById('noticeOption').remove();
             }
         }

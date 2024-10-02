@@ -5,8 +5,8 @@
     
 <mapper namespace="Member">
 
-	<select id="login" parameterType="hashmap" resultType="_int">
-		select count(*) FROM MEMBER WHERE userid = #{userid} and userpw = #{userpw}
+	<select id="login" parameterType="hashmap" resultType="MemberDTO">
+		SELECT * FROM MEMBER WHERE USERID = #{userid} AND USERPW = #{userpw}
 	</select>
 	
 	<insert id="join" parameterType="MemberDTO">
@@ -20,4 +20,6 @@
 	<select id="checkName" parameterType="string" resultType="_int">
 		select count(*) FROM MEMBER WHERE username = #{username}
 	</select>
+	
+
 </mapper>

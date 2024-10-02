@@ -21,6 +21,36 @@
 	}
 	
 	
+	.container {
+	    display: flex;
+	    flex-direction: column;
+	    width: 100%;
+	    border: 1px solid #f7175a; 
+	    border-radius: 15px; 
+	    overflow: hidden; /* 둥근 테두리 안에서 내용이 넘치지 않도록 */
+	  }
+	
+	  .row {
+	    display: flex;
+	    padding: 10px 20px;
+	  }
+	
+	
+	  .label {
+	    flex: 0 0 150px;
+	    text-align: center;
+	    font-weight: bold;
+	    color: #f7175a;
+	    line-height: 30px; 
+	  }
+	
+	  .content {
+	    flex: 1;
+	    border: 1px solid #f7175a;
+	    border-radius: 25px;
+	    padding: 10px 20px;
+	  }
+	
 	
 	    .BacktoList {
             border: 1px solid #f7175a; 
@@ -41,65 +71,53 @@
         
 </style>
 </head>
-<body>
+<body onload="checkUserRole()">
+
 	<c:set var="board" value="${requestScope.board }"/>
-	<c:set var="replylist" value="${requestScope.replylist }"/>
+   
+   
+	<div class="container">
+	  <div class="row">
+	    <div class="label">제 목</div>
+	    <div class="content">${board.boardtitle}</div>
+	  </div>
+	  <div class="row">
+	    <div class="label">작성자</div>
+	    <div class="content">${board.username}</div>
+	  </div>
+	  <div class="row">
+	    <div class="label">내 용</div>
+	    <div class="content">${board.boardcontents}</div>
+	  </div>
+	</div>
+   <hr/>
+   
    <div>
-      <table style="border-collapse: collapse;">
-         <tr height="30px">
-            <th align="center" width="150px" style="color: #f7175a;">제 목</th>
-            <td>${board.boardtitle }
-            </td>
-         </tr>
-         <tr height="30px">
-            <th align="center" width="150px" style="color: #f7175a;">작성자</th>
-            <td>${board.username }</td>
-         </tr>
-         <tr height="300px">
-            <th align="center" width="150px" style="color: #f7175a;">내 용</th>
-            <td valign="top" style="padding:10px;">
-            ${board.boardcontents }
-            </td>
-         </tr>
-      </table>
-      
-      <!-- 댓글 -->
-      <form name="replyForm" action="/qnaboard/AddReply.bo" method="post">
-         <input type="hidden" name="boardnum" value="${board.boardnum }">
-         <table>
-            <tr>
-               <td align="center" width="200px" style="color: #f7175a;">
-                  관리자<br><hr>
-               </td>
-               <td style="padding-left:10px">
-                  <textarea name="replycontents" style="width:680px;height:85px;resize:none; border: 1px solid #f7175a; border-radius: 10px; "></textarea><br>
-                   <input type="button" value="답변하기" class="Answer" onclick="document.replyForm.submit();"></td>
-               </td>
-            </tr>
-         </table>
-      
+      <form name="replyForm2" action="/qnaboard/UpdateReply.bo" method="post">
       <!-- 댓글 리스트 -->
-      <hr>
+      <input type="hidden" name="boardnum" value="${board.boardnum }">
          <table>
             <c:choose>
-	    	   <c:when test = "${replylist != null and fn:length(replylist)>0 }">
-				<c:forEach var="reply" items="${replylist }">	
-						<tr>
+	    	   <c:when test = "${board.adminreply != null }">
+	 			 <tr>
 	               <td align="center" width="200px">
-	               ${reply.username }</td>         
+	               답변</td>         
 	               <td valign="top" style="padding-left:10px;">
-	                  <textarea style="text-align:left;border:0px;width:680px;
-	                     height:85px;resize:none;" name="reply${reply.replynum }" id="reply${reply.replynum }" readonly>${reply.replycontents }
+	                  <textarea style="text-align:left;border:0px;width:680px; color: #f7175a; height:85px;resize:none;" name="replyUP${board.boardnum }" id="replyUP${board.boardnum }" readonly>
+	                     ${board.adminreply }
 	                  </textarea><br>
-	                  <a id="" href="javascript:updateReply(${reply.replynum },'${reply.password }')">[수정]</a>
+	                 <c:choose>
+	                  <c:when test="${sessionScope.session_id.usergrade == 'ADMIN'}">
+	                  <a style="padding: 5px 10px; border: 1px solid #f7175a; text-decoration: none; color: #f7175a; border-radius: 25px;" href="javascript:updateReply(${board.boardnum })">수정완료</a>
 	                  &nbsp;&nbsp;&nbsp;
-	                  <a id="" href="javascript:updateReadonlyReply(${reply.replynum })">[수정 하기]</a>
+	                  <a style="padding: 5px 10px; border: 1px solid #f7175a; text-decoration: none; color: #f7175a; border-radius: 25px;" href="javascript:updateReadonlyReply(${board.boardnum })">수정하기</a>
 	                  &nbsp;&nbsp;&nbsp;
-	                  <a id="" href="javascript:deleteReply(${reply.replynum },'${reply.password }')">[삭제]</a>
+	                  <a style="padding: 5px 10px; border: 1px solid #f7175a; text-decoration: none; color: #f7175a; border-radius: 25px;" href="javascript:deleteReply(${board.boardnum })">삭제</a>
+	                 </c:when>
+	                  </c:choose>
 	               </td>
 	            </tr>
 					
-					</c:forEach>
 				</c:when>
 				<c:otherwise> <%-- 내용 없을 때 --%>
 				   <tr>
@@ -112,37 +130,70 @@
       </form>
       <br/><br/>
    </div>
-	<div style="text-align: center;">
-       <input type="button" value="목록" class="BacktoList" onclick="location.href='/qnaboard/BoardList.bo';"></td>
-     </div>
-   
+        
+      <!-- 댓글 -->
+      
+      <form name="replyForm1" action="/qnaboard/AddReply.bo" method="post">
+         <input type="hidden" name="boardnum" value="${board.boardnum }">
+         <table>
+              <c:choose>
+	    	   <c:when test = "${sessionScope.session_id.usergrade == 'ADMIN'}">
+            <tr>
+               <td align="center" width="200px" style="color: #f7175a;">
+                  관리자<br><hr>
+               </td>
+               <td style="padding-left:10px">
+                  <textarea name="reply${board.boardnum }" style="width:680px;height:85px;resize:none; border: 1px solid #f7175a; border-radius: 10px; "></textarea><br>
+                   <input type="button" value="답변하기" class="Answer" onclick="document.replyForm1.submit();"></td>
+               </td>
+            </tr>
+            </c:when>
+            </c:choose>
+         </table>
+       	 <div style="text-align: right">
+   			<input type="button" id="Modify" value="수정하기" class="Answer" onclick="location.href='/qnaboard/boardupdate.jsp?boardnum='+${board.boardnum };">
+   			<input type="button" id="Delete" value="삭제하기" class="Answer" onclick="location.href='/qnaboard/DeleteBoard.bo?boardnum='+${board.boardnum };">
+   		</div>
+   		<div style="text-align: center">
+   			<input type="button" value="목록" class="BacktoList" onclick="location.href='/qnaboard/BoardList.bo';">
+   		</div>
    	<script>
+
    	
-   	function updateReply(replynum, password){
-		let pw = prompt("관리자 비밀번호를 입력하세요.");
-		if ( pw == password ){
-			document.replyForm.action = "/board/UpdateReply.bo?replynum="+replynum;
-			document.replyForm.submit();
+   	function updateReply(boardnum){
+  		 var result = confirm("정말로 수정할까요?");
+	 	if(result){
+	 		  document.replyForm2.action = "/qnaboard/UpdateReply.bo";
+	 	      document.replyForm2.submit();
 		} else {
-			
-			alert("비밀번호가 일치하지 않습니다")
+			alert("작업을 취소합니다.")
 		}
+  	}
+   	
+   	function updateReadonlyReply(boardnum){
+		document.getElementById('replyUP'+boardnum).readOnly = false;
    	}
    	
-   	function updateReadonlyReply(replynum){
-		document.getElementById('reply'+replynum).readOnly = false;
+   	function deleteReply(boardnum, password){
+		 var result = confirm("정말로 삭제할까요?");
+			 if(result){
+			document.replyForm2.action = "/qnaboard/DeleteReply.bo?boardnum="+boardnum;
+			document.replyForm2.submit();
+			 } else{
+				 alert("삭제를 취소합니다.");
+			 }
    	}
    	
-   	function deleteReply(replynum, password){
-   		let pw = prompt("관리자 비밀번호를 입력하세요.");
-		if ( pw == password ){
-			document.replyForm.action = "/board/DeleteReply.bo?replynum="+replynum;
-			document.replyForm.submit();
-		} else {
-			
-			alert("비밀번호가 일치하지 않습니다")
-		}
-   	}
+    function checkUserRole() {
+        var userRole = '${sessionScope.session_id.usergrade}';
+        var writeName = '${board.username }';
+        var userName = '${sessionScope.session_id.username}';
+        
+        if (userRole !== 'ADMIN' && writeName !== userName ) {
+            document.getElementById('Modify').remove();
+            document.getElementById('Delete').remove();
+        }
+    }
    	
    	</script>
 
