@@ -12,10 +12,4 @@
 		#{movie_genre}, #{movie_poster}, #{movie_still_image}, #{movie_star_rate}
 		)
 	</insert>
-	<insert id="insertBoxOffice" parameterType="moviedto">
-		
-	</insert>
-	<select id="selectMovieFromDB" parameterType="hashmap" resultType="moviedto">
-		SELECT * FROM MOVIE_DB WHERE MOVIE_TITLE = #{movie_title} AND MOVIE_DATE = #{movie_date}
-	</select>
 </mapper>
