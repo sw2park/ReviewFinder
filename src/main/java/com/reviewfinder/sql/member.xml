@@ -5,11 +5,19 @@
     
 <mapper namespace="Member">
 
+<<<<<<< HEAD
 	<select id="login" parameterType="hashmap" resultType="MemberDTO">
 		SELECT * FROM MEMBER WHERE USERID = #{userid} AND USERPW = #{userpw}
 	</select>
 	
 	<insert id="join" parameterType="MemberDTO">
+=======
+	<select id="login" parameterType="hashmap" resultType="_int">
+		select count(*) FROM MEMBER WHERE userid = #{userid} and userpw = #{userpw}
+	</select>
+	
+	<insert id="join" parameterType="com.reviewfinder.beans.MemberDTO">
+>>>>>>> fd71cdebd6ba44d5db5a9bf8b987de4b142db769
 		INSERT INTO MEMBER VALUES (#{userid}, #{userpw}, #{username}, 'BASIC', null)
 	</insert>
 
@@ -20,6 +28,9 @@
 	<select id="checkName" parameterType="string" resultType="_int">
 		select count(*) FROM MEMBER WHERE username = #{username}
 	</select>
+<<<<<<< HEAD
 	
 
+=======
+>>>>>>> fd71cdebd6ba44d5db5a9bf8b987de4b142db769
 </mapper>

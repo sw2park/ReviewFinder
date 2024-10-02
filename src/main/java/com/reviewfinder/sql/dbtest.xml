@@ -10,6 +10,10 @@
 		INSERT INTO MOVIE_DB VALUES(
 		movie_seq.nextval, #{movie_title}, #{movie_date}, #{movie_plot}, 
 		#{movie_genre}, #{movie_poster}, #{movie_still_image}, #{movie_star_rate}
+<<<<<<< HEAD
 		)
+=======
+		);
+>>>>>>> fd71cdebd6ba44d5db5a9bf8b987de4b142db769
 	</insert>
 </mapper>

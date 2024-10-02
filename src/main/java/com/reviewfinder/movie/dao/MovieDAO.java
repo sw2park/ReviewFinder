@@ -34,7 +34,11 @@ public class MovieDAO {
 			movie.add(moviemap.get(""+i+""));
 		}
 		for(int i=0;i<movie.size();i++) {
+<<<<<<< HEAD
 			if(session.insert("Dbtest.insertMovieDB",movie.get(i))==1) {
+=======
+			if(session.insert("Dbtest.insertMovieDB",movie)==1) {
+>>>>>>> fd71cdebd6ba44d5db5a9bf8b987de4b142db769
 				System.out.println("db저장 성공");
 			}else {
 				System.out.println("실패");
@@ -44,7 +48,11 @@ public class MovieDAO {
 	// 오버로딩
 	public void insertMovieDB(List<MovieDTO> movie) {
 		for(int i=0;i<movie.size();i++) {
+<<<<<<< HEAD
 			if(session.insert("Dbtest.insertMovieDB",movie.get(i))==1) {
+=======
+			if(session.insert("Dbtest.insertMovieDB",movie)==1) {
+>>>>>>> fd71cdebd6ba44d5db5a9bf8b987de4b142db769
 				System.out.println("db저장 성공");
 			}else {
 				System.out.println("실패");
@@ -52,6 +60,7 @@ public class MovieDAO {
 		}
 	}
 	
+<<<<<<< HEAD
 	// 박스오피스 테이블 추가
 	public void insertBoxOffice(HashMap<String, MovieDTO> moviemap) {
 		List<MovieDTO> movie = new ArrayList<MovieDTO>();
@@ -77,4 +86,7 @@ public class MovieDAO {
 		
 		return movie;
 	}
+=======
+	
+>>>>>>> fd71cdebd6ba44d5db5a9bf8b987de4b142db769
 }

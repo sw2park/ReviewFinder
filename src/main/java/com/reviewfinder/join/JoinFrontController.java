@@ -44,11 +44,15 @@ public class JoinFrontController extends HttpServlet {
 			//회원가입
 			forward = new JoinAction().execute(request, response);
 			break;
+<<<<<<< HEAD
 		
 		case "/join/logout.lo":
 		//로그아웃
 		forward = new LogoutAction().execute(request, response);
 		break;
+=======
+			
+>>>>>>> fd71cdebd6ba44d5db5a9bf8b987de4b142db769
 		}
 		
 		if(forward != null) {

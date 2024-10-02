@@ -30,7 +30,11 @@ public class KobisJson extends APIController{
 		List<MovieDTO> movieList = new ArrayList<MovieDTO>();
 		MovieDTO moviedto = null;
 		String url = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json";
+<<<<<<< HEAD
 		url_key.put("url", url);
+=======
+		url_key.put("url", url);	
+>>>>>>> fd71cdebd6ba44d5db5a9bf8b987de4b142db769
 		
 		String var = "movieNm";
 		String data = movieNm;
@@ -73,6 +77,7 @@ public class KobisJson extends APIController{
 	public List<MovieDTO> getRecommendList() throws IOException, ParseException{
 		List<MovieDTO> movieList = new ArrayList<MovieDTO>();
 		
+<<<<<<< HEAD
 		for(int i=0;i<5;i++) {
 			HashMap<String, MovieDTO> movieMap = null;
 			String date = null;
@@ -105,6 +110,16 @@ public class KobisJson extends APIController{
 			}
 		}
 
+=======
+		for(int i=1;i<=10;i++) {
+			movieList.add(getBoxOffice("20230101").get(""+i+""));
+			movieList.add(getBoxOffice("20230501").get(""+i+""));
+			movieList.add(getBoxOffice("20230701").get(""+i+""));
+			movieList.add(getBoxOffice("20240201").get(""+i+""));
+			movieList.add(getBoxOffice("20240501").get(""+i+""));
+		}
+		
+>>>>>>> fd71cdebd6ba44d5db5a9bf8b987de4b142db769
 		return movieList;
 	}
 	
@@ -130,6 +145,7 @@ public class KobisJson extends APIController{
 		JSONObject objData = (JSONObject)new JSONParser().parse(boxOfficeData);
 		JSONObject boxOfficeResult = (JSONObject)objData.get("boxOfficeResult");
 		
+<<<<<<< HEAD
 		JSONArray dailyBoxOfficeList = null;
 		
 		try{
@@ -137,6 +153,9 @@ public class KobisJson extends APIController{
 		}catch (NullPointerException e) {
 			getBoxOffice(date);
 		}
+=======
+		JSONArray dailyBoxOfficeList = (JSONArray)boxOfficeResult.get("dailyBoxOfficeList");
+>>>>>>> fd71cdebd6ba44d5db5a9bf8b987de4b142db769
 		
 		for(Object obj : dailyBoxOfficeList) {
 			JSONObject movieData = (JSONObject)obj;
@@ -157,6 +176,7 @@ public class KobisJson extends APIController{
 		return getBoxOffice(null);
 	}
 	
+<<<<<<< HEAD
 //	public static void main(String[] args) throws IOException, ParseException {
 //		KobisJson k = new KobisJson();
 //		List<MovieDTO> movie = k.getRecommendList();
@@ -164,4 +184,6 @@ public class KobisJson extends APIController{
 //			System.out.println(temp.getMovie_title());
 //		}
 //	}
+=======
+>>>>>>> fd71cdebd6ba44d5db5a9bf8b987de4b142db769
 }

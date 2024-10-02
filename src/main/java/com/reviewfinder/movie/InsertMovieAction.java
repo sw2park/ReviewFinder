@@ -3,6 +3,7 @@ package com.reviewfinder.movie;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
+<<<<<<< HEAD
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -10,6 +11,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
+=======
+>>>>>>> fd71cdebd6ba44d5db5a9bf8b987de4b142db769
 
 import org.json.simple.parser.ParseException;
 
@@ -43,7 +46,11 @@ public class InsertMovieAction implements Action{
 		mdao.insertMovieDB(movieList);
 		
 		forward.setRedirect(true);
+<<<<<<< HEAD
 		forward.setPath("/movie/InsertBoxoffice.mv");
+=======
+		forward.setPath("/test.jsp");
+>>>>>>> fd71cdebd6ba44d5db5a9bf8b987de4b142db769
 		
 		return forward;
 	}

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <faceted-project>
+<<<<<<< HEAD
   <runtime name="jsp"/>
+=======
+  <runtime name="ReviewFinder2"/>
+>>>>>>> fd71cdebd6ba44d5db5a9bf8b987de4b142db769
   <fixed facet="jst.web"/>
   <fixed facet="java"/>
   <fixed facet="wst.jsdt.web"/>

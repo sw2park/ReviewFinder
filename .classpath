@@ -22,5 +22,19 @@
 			<attribute name="owner.project.facets" value="jst.web"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
+=======
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/ReviewFinder"/>
+	<classpathentry kind="lib" path="src/src/main/webapp/WEB-INF/lib/jakarta.servlet.jsp.jstl-2.0.0.jar"/>
+	<classpathentry kind="lib" path="src/src/main/webapp/WEB-INF/lib/jakarta.servlet.jsp.jstl-api-2.0.0.jar"/>
+	<classpathentry kind="lib" path="src/src/main/webapp/WEB-INF/lib/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="src/src/main/webapp/WEB-INF/lib/jstl.jar"/>
+	<classpathentry kind="lib" path="src/src/main/webapp/WEB-INF/lib/mybatis-3.5.16.jar"/>
+	<classpathentry kind="lib" path="src/src/main/webapp/WEB-INF/lib/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="src/src/main/webapp/WEB-INF/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="src/src/main/webapp/WEB-INF/lib/standard.jar"/>
+>>>>>>> fd71cdebd6ba44d5db5a9bf8b987de4b142db769
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

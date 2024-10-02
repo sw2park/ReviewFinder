@@ -7,6 +7,12 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.HashMap;
+<<<<<<< HEAD
+=======
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
+>>>>>>> fd71cdebd6ba44d5db5a9bf8b987de4b142db769
 
 public class APIController {
 	// 기본URL + 요청 인자로 api 호출
@@ -18,18 +24,25 @@ public class APIController {
 			urlBuilder.append("&" + URLEncoder.encode(var_data.get("var"+i), "UTF-8") + "=" + URLEncoder.encode(var_data.get("data"+i),"UTF-8"));
 		}
 		URL url = new URL(urlBuilder.toString());
+<<<<<<< HEAD
 		if(url_key.get("url").equals("https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json")) {
 			System.out.println(urlBuilder);
 		}
 		
+=======
+>>>>>>> fd71cdebd6ba44d5db5a9bf8b987de4b142db769
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 		conn.setRequestMethod("GET");
 		conn.setRequestProperty("Content-type", "application/json");
 		// 상태 코드 출력
+<<<<<<< HEAD
 		 System.out.println("Response code: " + conn.getResponseCode());
 		 if(conn.getResponseCode()!=200) {
 			return callAPI(url_key, var_data);
 		 }
+=======
+		// System.out.println("Response code: " + conn.getResponseCode());
+>>>>>>> fd71cdebd6ba44d5db5a9bf8b987de4b142db769
 		BufferedReader rd;
 		if (conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
 			rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
